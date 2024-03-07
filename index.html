@@ -6,17 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
 
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
+
+    <script src="script.js"></script>
+    <script src="tamplates.js"></script>
+
 </head>
 
-<body onload="loadPokemon()">
-    <div id="pokedex">
-        <h1 id="pokemonName"></h1>
+<body onload="init()">
+       <header class="header">
+        <div class="header-left">
+            <a href="#"><img class="logo" src="./img/logo.png" alt="Logo"></a>
+            <span>Pokedex</span>
+        </div>
+        <div class="header-right">
+            <input type="text" placeholder="Namen eingeben">
+            <button>Suchen</button>
+        </div>
+    </header>
+
+    <div class="container" id="main-content">
     </div>
-    <div class="info-container">
-        <img id="pokemonImage" alt="Pokemon Image">
+
+    <div class="d-none">
+        <div id="pokedex">
+            <h1 id="pokemonName"></h1>
+        </div>
+        <div class="info-container">
+            <img id="pokemonImage" alt="Pokemon Image">
+        </div>
     </div>
 </body>
 
