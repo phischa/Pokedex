@@ -9,7 +9,7 @@ async function init() {
     setTimeout(async () => {
         renderIntroPokemon()
         loadRestPokemon()
-    }, 2000);
+    }, 1000);
 }
 
 async function loadIntroPokemon() {
@@ -34,8 +34,9 @@ function renderIntroPokemon() {
     for (let i = 0; i < numberLoading; i++) {
         let dataPokemon = allPokemon[i];
         let type = dataPokemon['types'][0]['type']['name'];
+        let img = dataPokemon['sprites']['other']['dream_world']['front_default'];
         let namePokemon = dataPokemon['name'];
-        renderLoadedPokemonHTML(type, namePokemon, allPokemon, i + 1);
+        renderLoadedPokemonHTML(type, img, namePokemon, allPokemon, i + 1);
     }
 }
 
