@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
 
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
 
@@ -18,7 +20,7 @@
        <header class="header">
         <div class="header-left">
             <a href="#"><img class="logo" src="./img/logo.png" alt="Logo"></a>
-            <span>Pokedex</span>
+            <span id="headline-poke">Pokedex</span>
         </div>
         <div class="header-right">
             <input type="text" placeholder="Namen eingeben">
@@ -30,7 +32,7 @@
     </div>
 
     <div class="button-container">
-        <button class="bt">Load more</button>
+        <button onclick="renderAdditionalPokemon()" class="bt">Load more</button>
     </div>
 
     <div class="d-none">

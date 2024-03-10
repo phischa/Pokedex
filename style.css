@@ -61,7 +61,7 @@ h2 {
 .cards {
     background-color: rgba(255, 123, 0, 0.259);
     margin: 12px;
-    height: 183px;
+    height: 197px;
     width: 320px;
     box-sizing: border-box;
     border-radius: 16px;
@@ -71,7 +71,7 @@ h2 {
 }
 
 .cards:hover {
-    box-shadow:  8px 8px 16px #d5d5d5,
+    box-shadow:  8px 8px 16px #cdcdcd,
                 -8px -8px 16px #ebebeb;
 }
 
@@ -130,4 +130,17 @@ h2 {
     margin: 16px 0 16px 0;
     border-radius: 8px;
     cursor: pointer;
+}
+
+@media(max-width: 550px) {
+    #headline-poke {
+        display: none;
+    }
+
+    .cards {
+        background-color: rgba(255, 123, 0, 0.259);
+        margin: 12px;
+        height: 179px;
+        width: 290px;
+    }
 }

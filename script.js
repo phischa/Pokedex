@@ -40,6 +40,15 @@ function renderIntroPokemon() {
     }
 }
 
+function renderAdditionalPokemon() {
+    for (let i = 0; i < numberLoading + 25 ; i++) {
+        let dataPokemon = allPokemon[i];
+        let type = dataPokemon['types'][0]['type']['name'];
+        let img = dataPokemon['sprites']['other']['dream_world']['front_default'];
+        let namePokemon = dataPokemon['name'];
+    }
+}
+
 /* function renderLoadedPokemonHTML(type, allPokemon, i) {
     document.getElementById('main-content').innerHTML = '';
     document.getElementById('main-content').innerHTML += `
