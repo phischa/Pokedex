@@ -9,7 +9,7 @@ async function init() {
     setTimeout(async () => {
         renderIntroPokemon()
         loadRestPokemon()
-    }, 1000);
+    }, 500);
 }
 
 async function loadIntroPokemon() {
@@ -41,13 +41,24 @@ function renderIntroPokemon() {
 }
 
 function renderAdditionalPokemon() {
-    for (let i = 0; i < numberLoading + 25 ; i++) {
+    let newLoadingNumber = Math.min(numberLoading + 25, 250);
+    for (let i = numberLoading; i < newLoadingNumber; i++) {
         let dataPokemon = allPokemon[i];
         let type = dataPokemon['types'][0]['type']['name'];
         let img = dataPokemon['sprites']['other']['dream_world']['front_default'];
         let namePokemon = dataPokemon['name'];
+        renderLoadedPokemonHTML(type, img, namePokemon, allPokemon, i + 1);
+    }
+    numberLoading = newLoadingNumber;
+    if (numberLoading >= 250) {
+        hideLoadingButton();
     }
 }
+
+function hideLoadingButton() {
+    document.getElementById('bt-load').classList.add("d-none");
+}
+    
 
 /* function renderLoadedPokemonHTML(type, allPokemon, i) {
     document.getElementById('main-content').innerHTML = '';

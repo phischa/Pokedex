@@ -125,7 +125,7 @@ h2 {
     justify-content: center;
 }
 
-.bt {
+#bt-load {
     padding: 8px 16px 8px 16px;
     margin: 16px 0 16px 0;
     border-radius: 8px;
