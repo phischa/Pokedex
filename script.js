@@ -63,6 +63,15 @@ function renderAdditionalPokemon() {
     }
 }
 
+function openPokedexInfo(i) {
+    let type = allPokemon[i]['types'][0]['type']['name'];
+    let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
+    let backgroundColor = color[type];
+    let namePokemon = allPokemon[i]['name'];
+    document.getElementById('pokedex-card').classList.add('box-fullscreen');
+    openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon, i);
+}
+
 //Hilfsfunktionen__________________________________
 function showLoader() {
     document.getElementById('loader-container').style.display = 'flex';
@@ -78,16 +87,6 @@ function hideLoadingButton() {
 
 function showLoadingButton() {
     document.getElementById('bt-load').classList.remove('d-none');
-}
-
-function openPokedexInfo(i) {
-    let type = allPokemon[i]['types'][0]['type']['name'];
-    let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
-    let backgroundColor = color[type];
-    document.getElementById('pokedex-card').classList.add('box-fullscreen');
-    /* const image = images[i]; */
-    /* fullscreen.innerHTML = ''; */
-    openPokedexInfoHTML(i, backgroundColor, img, type);
 }
 
 function hidePokedexCard() {
