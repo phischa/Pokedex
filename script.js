@@ -4,9 +4,9 @@ let allPokemon = [];
 let numberLoading = 25;
 
 let color = {
-    normal: 'rgb(181,181,181)', fighting: '#BB5545', flying: 'rgb(113,185,217)', poison: 'rgb(181,90,165)', ground: 'rgb(199,166,72)',
-    rock: 'rgb(195,173,95)', bug: 'rgb(176,177,45)', ghost: 'rgb(101,102,187)', fire: 'rgb(237,61,34)', water: 'rgb(76,137,227)',
-    grass: 'rgb(63,172,39)', electric: 'rgb(247,195,34)', psychic: 'rgb(242,103,158)', ice: 'rgb(54,187,215)', dragon: 'rgb(96,70,246)',
+    normal: 'rgb(181,181,181)', fighting: '#BB5545', flying: 'rgb(113,185,217)', poison: 'rgb(170, 120, 186)', ground: 'rgb(184, 132, 63)',
+    rock: 'rgb(195,173,95)', bug: 'rgb(182, 182, 80)', ghost: 'rgb(101,102,187)', fire: 'rgb(251, 108, 108)', water: 'rgb(76,137,227)',
+    grass: 'rgb(100, 190, 80)', electric: 'rgb(248, 220, 94)', psychic: 'rgb(240, 117, 166)', ice: 'rgb(54,187,215)', dragon: 'rgb(120, 98, 245)',
     fairy: 'rgb(231,165,230)', steel: 'rgb(166,165,170)', dark: 'rgb(115,90,74)11'
 };
 
