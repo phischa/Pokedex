@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 h2 {
@@ -12,8 +13,9 @@ h2 {
     width: 6px;
     height: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(200,55,55);
+    background-color: rgb(200, 55, 55);
     border-radius: 4px;
 }
 
@@ -28,7 +30,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 8px 24px 8px 24px;
     box-shadow: 1px 1px rgba(26, 26, 26, 0.1)
 }
 
@@ -47,8 +49,10 @@ h2 {
     padding: 8px 16px 8px 16px;
 }
 
-.bt-search {
+#search {
     cursor: pointer;
+    padding: 8px 16px 8px 16px;
+    width: 220px;
 }
 
 .container {
@@ -65,14 +69,14 @@ h2 {
     width: 320px;
     box-sizing: border-box;
     border-radius: 16px;
-    box-shadow:  5px 5px 16px #d5d5d5,
-                -5px -5px 16px #ebebeb;
+    box-shadow: 5px 5px 16px #d5d5d5,
+        -5px -5px 16px #ebebeb;
     cursor: pointer;
 }
 
 .cards:hover {
-    box-shadow:  8px 8px 16px #cdcdcd,
-                -8px -8px 16px #ebebeb;
+    box-shadow: 8px 8px 16px #cdcdcd,
+        -8px -8px 16px #ebebeb;
 }
 
 .cards-headline {
@@ -102,7 +106,7 @@ h2 {
 
 #pokedex {
     min-height: 50vh;
-    background-color: rgb(253,118,120);
+    background-color: rgb(253, 118, 120);
     color: white;
     display: flex;
     padding: 24px;
@@ -132,7 +136,17 @@ h2 {
     cursor: pointer;
 }
 
+@media(max-width: 650px) {
+    #search {
+        width: 140px;
+    }
+}
+
 @media(max-width: 550px) {
+    .header {
+        padding: 8px;
+    }
+
     #headline-poke {
         display: none;
     }

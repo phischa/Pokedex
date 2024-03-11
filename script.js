@@ -3,6 +3,12 @@ let currentPokemon;
 let allPokemon = [];
 let numberLoading = 25;
 
+let color = {
+    normal: 'rgb(181,181,181)', fighting: '#BB5545', flying: 'rgb(113,185,217)', poison: 'rgb(181,90,165)', ground: 'rgb(199,166,72)',
+    rock: 'rgb(195,173,95)', bug: 'rgb(176,177,45)', ghost: 'rgb(101,102,187)', fire: 'rgb(237,61,34)', water: 'rgb(76,137,227)',
+    grass: 'rgb(63,172,39)', electric: 'rgb(247,195,34)', psychic: 'rgb(242,103,158)', ice: 'rgb(54,187,215)', dragon: 'rgb(96,70,246)',
+    fairy: 'rgb(231,165,230)', steel: 'rgb(166,165,170)', dark: 'rgb(115,90,74)11'
+};
 
 async function init() {
     await loadIntroPokemon();
@@ -32,22 +38,22 @@ async function loadRestPokemon() {
 
 function renderIntroPokemon() {
     for (let i = 0; i < numberLoading; i++) {
-        let dataPokemon = allPokemon[i];
-        let type = dataPokemon['types'][0]['type']['name'];
-        let img = dataPokemon['sprites']['other']['dream_world']['front_default'];
-        let namePokemon = dataPokemon['name'];
-        renderLoadedPokemonHTML(type, img, namePokemon, allPokemon, i + 1);
+        let type = allPokemon[i]['types'][0]['type']['name'];
+        let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
+        let namePokemon = allPokemon[i]['name'];
+        let backgroundcolor = color[type];
+        renderLoadedPokemonHTML(type, img, namePokemon, backgroundcolor, allPokemon, i);
     }
 }
 
 function renderAdditionalPokemon() {
     let newLoadingNumber = Math.min(numberLoading + 25, 250);
     for (let i = numberLoading; i < newLoadingNumber; i++) {
-        let dataPokemon = allPokemon[i];
-        let type = dataPokemon['types'][0]['type']['name'];
-        let img = dataPokemon['sprites']['other']['dream_world']['front_default'];
-        let namePokemon = dataPokemon['name'];
-        renderLoadedPokemonHTML(type, img, namePokemon, allPokemon, i + 1);
+        let type = allPokemon[i]['types'][0]['type']['name'];
+        let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
+        let namePokemon = allPokemon[i]['name'];
+        let backgroundcolor = color[type];
+        renderLoadedPokemonHTML(type, img, namePokemon, backgroundcolor, allPokemon, i);
     }
     numberLoading = newLoadingNumber;
     if (numberLoading >= 250) {
@@ -57,6 +63,36 @@ function renderAdditionalPokemon() {
 
 function hideLoadingButton() {
     document.getElementById('bt-load').classList.add("d-none");
+}
+
+function showLoadingButton() {
+    document.getElementById('bt-load').classList.remove("d-none");
+}
+
+// Suchfunktion________________________________________________
+function searchPokemon() {
+    let search = document.getElementById('search').value.toLowerCase();
+    if (search.length >= 3) {
+        renderFilteredPokemon(search);
+    } else if (search.length === 0) {
+        document.getElementById('main-content').innerHTML = '';
+        renderIntroPokemon();
+        showLoadingButton();
+    }
+}
+
+function renderFilteredPokemon(search) {// Rendere jedes gefilterte Pokémon
+    document.getElementById('main-content').innerHTML = '';
+    for (let i = 0; i < allPokemon.length; i++) {
+        if (allPokemon[i]['name'].toLowerCase().includes(search)) {
+        let type = allPokemon[i]['types'][0]['type']['name'];
+        let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
+        let namePokemon = allPokemon[i]['name'];
+        let backgroundcolor = color[type];
+        renderLoadedPokemonHTML(type, img, namePokemon, backgroundcolor, allPokemon, i);
+        hideLoadingButton();
+        }
+    }
 }
     
 
