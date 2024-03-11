@@ -11,11 +11,13 @@ let color = {
 };
 
 async function init() {
+    showLoader();
     await loadIntroPokemon();
     setTimeout(async () => {
-        renderIntroPokemon()
-        loadRestPokemon()
-    }, 500);
+        renderIntroPokemon();
+        loadRestPokemon();
+        hideLoader();
+    }, 1000);
 }
 
 async function loadIntroPokemon() {
@@ -41,8 +43,8 @@ function renderIntroPokemon() {
         let type = allPokemon[i]['types'][0]['type']['name'];
         let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
         let namePokemon = allPokemon[i]['name'];
-        let backgroundcolor = color[type];
-        renderLoadedPokemonHTML(type, img, namePokemon, backgroundcolor, allPokemon, i);
+        let backgroundColor = color[type];
+        renderLoadedPokemonHTML(type, img, namePokemon, backgroundColor, allPokemon, i);
     }
 }
 
@@ -52,8 +54,8 @@ function renderAdditionalPokemon() {
         let type = allPokemon[i]['types'][0]['type']['name'];
         let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
         let namePokemon = allPokemon[i]['name'];
-        let backgroundcolor = color[type];
-        renderLoadedPokemonHTML(type, img, namePokemon, backgroundcolor, allPokemon, i);
+        let backgroundColor = color[type];
+        renderLoadedPokemonHTML(type, img, namePokemon, backgroundColor, allPokemon, i);
     }
     numberLoading = newLoadingNumber;
     if (numberLoading >= 250) {
@@ -61,13 +63,37 @@ function renderAdditionalPokemon() {
     }
 }
 
+//Hilfsfunktionen__________________________________
+function showLoader() {
+    document.getElementById('loader-container').style.display = 'flex';
+}
+
+function hideLoader() {
+    document.getElementById('loader-container').style.display = 'none';
+}
+
 function hideLoadingButton() {
-    document.getElementById('bt-load').classList.add("d-none");
+    document.getElementById('bt-load').classList.add('d-none');
 }
 
 function showLoadingButton() {
-    document.getElementById('bt-load').classList.remove("d-none");
+    document.getElementById('bt-load').classList.remove('d-none');
 }
+
+function openPokedexInfo(i) {
+    let type = allPokemon[i]['types'][0]['type']['name'];
+    let img = allPokemon[i]['sprites']['other']['dream_world']['front_default'];
+    let backgroundColor = color[type];
+    document.getElementById('pokedex-card').classList.add('box-fullscreen');
+    /* const image = images[i]; */
+    /* fullscreen.innerHTML = ''; */
+    openPokedexInfoHTML(i, backgroundColor, img, type);
+}
+
+function hidePokedexCard() {
+    document.getElementById('pokedex-card').classList.remove('box-fullscreen');
+}
+
 
 // Suchfunktion________________________________________________
 function searchPokemon() {
