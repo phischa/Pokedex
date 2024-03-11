@@ -70,6 +70,7 @@ function openPokedexInfo(i) {
     let namePokemon = allPokemon[i]['name'];
     document.getElementById('pokedex-card').classList.add('box-fullscreen');
     openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon, i);
+    renderChart(allPokemon, i);
 }
 
 //Hilfsfunktionen__________________________________
@@ -90,7 +91,16 @@ function showLoadingButton() {
 }
 
 function hidePokedexCard() {
-    document.getElementById('pokedex-card').classList.remove('box-fullscreen');
+    document.getElementById('pokedex-card').classList.add('d-none');
+}
+
+function previousPokemon(i) {
+    openPokedexInfo(i)
+
+}
+
+function nextPokemon(i) {
+
 }
 
 

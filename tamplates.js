@@ -7,7 +7,7 @@ function renderLoadedPokemonHTML(type, img, namePokemon, backgroundColor, allPok
         <div class="cards" style="background-color: ${backgroundColor};">
             <div class="cards-headline">
                 <h2 class="padding-12">${namePokemon.charAt(0).toUpperCase() + namePokemon.slice(1)}</h2>
-                <span class="padding-12">${allPokemon[i]['id']}</span>
+                <span class="padding-12 bold">${allPokemon[i]['id']}</span>
             </div>
             <div class="cards-type">
                     <span>1. type: ${type.charAt(0).toUpperCase() + type.slice(1)}</span><br>
@@ -26,22 +26,29 @@ function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon
     pokedexCard.innerHTML = '';
     document.getElementById('pokedex-card').classList.remove("d-none");
     pokedexCard.innerHTML += /* HTML */ `
-    <div onclick="hidePokedexCard()">
-        <div id="pokedex" style="background-color: ${backgroundColor};">
+    <div class="pokedex-wrapper">
+        <div onclick="hidePokedexCard()" id="pokedex" style="background-color: ${backgroundColor};">
             <div class="cards-headline">
                 <h2 class="padding-12">${namePokemon.charAt(0).toUpperCase() + namePokemon.slice(1)}</h2>
-                <span class="padding-12">${allPokemon[i]['id']}</span>
+                <span class="padding-12 bold">${allPokemon[i]['id']}</span>
             </div>
             <div class="cards-type">
-                    <span>1. type: ${type.charAt(0).toUpperCase() + type.slice(1)}</span><br>
+                    <span>1. type: ${type.charAt(0).toUpperCase() + type.slice(1)}</span> <br>
                     <span>${secondType}</span>
             </div>
             <div class="cards-img">
                 <img src="${img}">
             </div>
         </div>
-        <div class="info-container">
-            
+        <div class="navigation-btn">
+            <span onclick="previousPokemon()" id="previous" src="./img/previous.png" alt="PREVIOUS"> <</span>
+            <br>
+            <span onclick="nextPokemon()" id="next" src="./img/next.png" alt="NEXT">> </span>
+        </div>
+        <div onclick="hidePokedexCard()" class="info-container">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>`;
     }
