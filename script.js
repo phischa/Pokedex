@@ -3,6 +3,7 @@ let currentPokemon;
 let allPokemon = [];
 let numberLoading = 25;
 
+
 let color = {
     normal: 'rgb(181,181,181)', fighting: '#BB5545', flying: 'rgb(113,185,217)', poison: 'rgb(170, 120, 186)', ground: 'rgb(184, 132, 63)',
     rock: 'rgb(195,173,95)', bug: 'rgb(182, 182, 80)', ghost: 'rgb(101,102,187)', fire: 'rgb(251, 108, 108)', water: 'rgb(76,137,227)',
@@ -94,15 +95,19 @@ function hidePokedexCard() {
     document.getElementById('pokedex-card').classList.add('d-none');
 }
 
-/* function previousPokemon(i, allPokemon) {
-    
-} */
+function previousPokemon(i) {
+    i = (i - 1 + allPokemon.length) % allPokemon.length;
+    document.getElementById('pokedex-card').innerHTML = '';
+    renderLoadedPokemonHTML(i);
+    openPokedexInfoHTML(i);
+}
 
-/* function nextPokemon(i) {
+function nextPokemon(i) {
     i = (i + 1) % allPokemon.length;
     document.getElementById('pokedex-card').innerHTML = '';
+    renderLoadedPokemonHTML(i);
     openPokedexInfoHTML(i);
-} */
+}
 
 
 // Suchfunktion________________________________________________

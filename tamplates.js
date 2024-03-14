@@ -23,7 +23,6 @@ function renderLoadedPokemonHTML(type, img, namePokemon, backgroundColor, allPok
 function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon, i) {
     let pokedexCard = document.getElementById('pokedex-card');
     let secondType = allPokemon[i]['types'][1] ? `2. type: ${allPokemon[i]['types'][1]['type']['name'].charAt(0).toUpperCase() + allPokemon[i]['types'][1]['type']['name'].slice(1)}` : '';
-    pokedexCard.innerHTML = '';
     document.getElementById('pokedex-card').classList.remove("d-none");
     pokedexCard.innerHTML += /* HTML */ `
     <div class="pokedex-wrapper">
@@ -41,9 +40,9 @@ function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon
             </div>
         </div>
         <div class="navigation-btn">
-            <span onclick="previousPokemon()" id="previous" src="./img/previous.png" alt="PREVIOUS"> <</span>
+            <span onclick="previousPokemon(${i})" id="previous" src="./img/previous.png" alt="PREVIOUS"> <</span>
             <br>
-            <span onclick="nextPokemon()" id="next" src="./img/next.png" alt="NEXT">> </span>
+            <span onclick="nextPokemon(${i})" id="next" src="./img/next.png" alt="NEXT">> </span>
         </div>
         <div class="info-container">
             <div class="chart-container">
