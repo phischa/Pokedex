@@ -45,10 +45,10 @@ function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon
             <br>
             <span onclick="nextPokemon()" id="next" src="./img/next.png" alt="NEXT">> </span>
         </div>
-        <div onclick="hidePokedexCard()" class="info-container">
+        <div class="info-container">
             <div class="chart-container">
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart"></canvas><br>
             </div>
         </div>
     </div>`;
-    }
+}

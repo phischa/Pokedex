@@ -16,13 +16,26 @@ function renderChart(allPokemon, i) {
     data: {
         labels: ['HP', 'Attack', 'Defense'],
         datasets: [{
-          label: 'Life Data',
           data: stats,
           backgroundColor: bgColor,
           borderWidth: 1
         }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        title: {
+          display: true,
+          text: "Pokemon Data",
+          font: {
+            size: 18,
+          },
+        },
+      },
       scales: {
         y: { 
             max: 140

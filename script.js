@@ -94,14 +94,15 @@ function hidePokedexCard() {
     document.getElementById('pokedex-card').classList.add('d-none');
 }
 
-function previousPokemon(i) {
-    openPokedexInfo(i)
+/* function previousPokemon(i, allPokemon) {
+    
+} */
 
-}
-
-function nextPokemon(i) {
-
-}
+/* function nextPokemon(i) {
+    i = (i + 1) % allPokemon.length;
+    document.getElementById('pokedex-card').innerHTML = '';
+    openPokedexInfoHTML(i);
+} */
 
 
 // Suchfunktion________________________________________________
