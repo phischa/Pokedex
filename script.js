@@ -74,6 +74,18 @@ function openPokedexInfo(i) {
     renderChart(allPokemon, i);
 }
 
+function previousPokemon(i) {
+    i = (i - 1 + allPokemon.length) % allPokemon.length;
+    document.getElementById('pokedex-card').innerHTML = '';
+    openPokedexInfo(i);
+}
+
+function nextPokemon(i) {
+    i = (i + 1) % allPokemon.length;
+    document.getElementById('pokedex-card').innerHTML = '';
+    openPokedexInfo(i);
+}
+
 //Hilfsfunktionen__________________________________
 function showLoader() {
     document.getElementById('loader-container').style.display = 'flex';
@@ -94,21 +106,6 @@ function showLoadingButton() {
 function hidePokedexCard() {
     document.getElementById('pokedex-card').classList.add('d-none');
 }
-
-function previousPokemon(i) {
-    i = (i - 1 + allPokemon.length) % allPokemon.length;
-    document.getElementById('pokedex-card').innerHTML = '';
-    renderLoadedPokemonHTML(i);
-    openPokedexInfoHTML(i);
-}
-
-function nextPokemon(i) {
-    i = (i + 1) % allPokemon.length;
-    document.getElementById('pokedex-card').innerHTML = '';
-    renderLoadedPokemonHTML(i);
-    openPokedexInfoHTML(i);
-}
-
 
 // Suchfunktion________________________________________________
 function searchPokemon() {

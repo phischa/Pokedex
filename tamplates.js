@@ -24,7 +24,7 @@ function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon
     let pokedexCard = document.getElementById('pokedex-card');
     let secondType = allPokemon[i]['types'][1] ? `2. type: ${allPokemon[i]['types'][1]['type']['name'].charAt(0).toUpperCase() + allPokemon[i]['types'][1]['type']['name'].slice(1)}` : '';
     document.getElementById('pokedex-card').classList.remove("d-none");
-    pokedexCard.innerHTML += /* HTML */ `
+    pokedexCard.innerHTML = /* HTML */ `
     <div class="pokedex-wrapper">
         <div onclick="hidePokedexCard()" id="pokedex" style="background-color: ${backgroundColor};">
             <div class="cards-headline">
@@ -44,7 +44,7 @@ function openPokedexInfoHTML(type, img, namePokemon, backgroundColor, allPokemon
             <br>
             <span onclick="nextPokemon(${i})" id="next" src="./img/next.png" alt="NEXT">> </span>
         </div>
-        <div class="info-container">
+        <div onclick="hidePokedexCard()" class="info-container">
             <div class="chart-container">
                 <canvas id="myChart"></canvas><br>
             </div>
