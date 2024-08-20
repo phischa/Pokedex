@@ -90,12 +90,12 @@ function nextPokemon(i) {
 
 //Hilfsfunktionen__________________________________
 function showHideLoader() {
-let x = document.getElementById("loader-container");
-  if (x.style.display === "flex") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "flex";
-  }
+    let x = document.getElementById("loader-container");
+    if (x.style.display === "flex") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "flex";
+    }
 }
 
 function loadingButton() {
@@ -116,7 +116,7 @@ function searchPokemon() {
     } else if (search.length === 0) {
         document.getElementById('main-content').innerHTML = '';
         renderIntroPokemon();
-        loadingButton();
+        document.getElementById('bt-load').classList.remove('d-none');
     }
 }
 
